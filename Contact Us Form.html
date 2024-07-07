@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="contact-form">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="subscribe" name="subscribe">
+                    Subscribe to our email list
+                </label>
+            </div>
+            
+            <div class="form-group">
+                <label for="comments">Comments:</label>
+                <textarea id="comments" name="comments" rows="4"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Contact Preference:</label><br>
+                <label><input type="radio" name="contact-preference" value="email" checked> Email</label><br>
+                <label><input type="radio" name="contact-preference" value="phone"> Phone</label><br>
+                <label><input type="radio" name="contact-preference" value="text"> Text</label>
+            </div>
+            
+            <div class="form-group">
+                <label for="state">State:</label>
+                <select id="state" name="state">
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AZ">Arkansas</option>
+                    <option value="AZ">California</option>
+                    <option value="AZ">Colorado</option>
+                    <option value="AZ">Connecticut</option>
+                    <option value="AZ">Delaware</option>
+                    <option value="AZ">Florida</option>
+                    <option value="AZ">Georgia</option>
+                    <option value="AZ">Hawaii</option>
+                    <option value="AZ">Idaho</option>
+                    <option value="AZ">Illinois</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subscribe: document.getElementById('subscribe').checked ? 'Yes' : 'No',
+                comments: document.getElementById('comments').value,
+                contactPreference: document.querySelector('input[name="contact-preference"]:checked').value,
+                state: document.getElementById('state').value
+            };
+
+            sessionStorage.setItem('contactFormData', JSON.stringify(formData));
+            window.location.href = 'display.html';
+        });
+    </script>
+</body>
+</html>

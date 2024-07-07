@@ -1,0 +1,18 @@
+// script.js
+
+document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name');
+    const email = urlParams.get('email');
+    const subscribe = urlParams.get('subscribe') === 'on' ? 'Yes' : 'No';
+    const comments = urlParams.get('comments');
+    const contactPreference = urlParams.get('contact-preference');
+    const state = urlParams.get('state');
+
+    document.getElementById('name').textContent = name;
+    document.getElementById('email').textContent = email;
+    document.getElementById('subscribe').textContent = subscribe;
+    document.getElementById('comments').textContent = comments;
+    document.getElementById('contact-preference').textContent = contactPreference;
+    document.getElementById('state').textContent = state;
+});
